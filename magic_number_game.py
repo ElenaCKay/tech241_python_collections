@@ -1,6 +1,7 @@
 # Magic number game
 
 import random
+import sys
 
 user_name = input("What is your name? ")
 print(f"Hello {user_name}! This is the magic number game. If you would like to quit at any time just type quit")
@@ -16,6 +17,8 @@ if level == "hard":
     biggest_num = 50
 if level == "insane":
     biggest_num = 100
+if level == "quit":
+    sys.exit("You have quit")
 
 magic_number = random.randint(1, int(biggest_num))
 guess_count = 0
@@ -25,7 +28,7 @@ while guess_count <= 3:
         user_guess = input(f"Pick a number between 1 and {biggest_num}: ")
         guess_count += 1
         if user_guess == "quit":
-            break
+            sys.exit("You have quit")
         user_number = int(user_guess)
         if user_number == magic_number:
             print(f"You did it! You guessed the magic number {magic_number}!")
