@@ -4,9 +4,9 @@ import random
 
 magic_number = random.randint(1, 20)
 guess_count = 0
-user_quit = False
 
-print("Hello! This is the magic number game. If you would like to quit at any time just type quit")
+user_name = input("What is your name? ")
+print(f"Hello {user_name}! This is the magic number game. If you would like to quit at any time just type quit")
 
 while guess_count <= 3:
     try:
@@ -19,7 +19,7 @@ while guess_count <= 3:
             print(f"You did it! You guessed the magic number {magic_number}!")
             break
         if guess_count == 3:
-            print(f"You ran out of guesses! The magic number was {magic_number}. Try again...")
+            try_again = input(f"You ran out of guesses! The magic number was {magic_number}. Try again...")
             break
         elif user_number < magic_number:
             print("That number is too small... ")
